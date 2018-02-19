@@ -1,7 +1,7 @@
 class Sorter {
   constructor() {
     this.arr = [];
-    console.log(indices)
+    //console.log(indices)
 
     // your implementation
   }
@@ -27,13 +27,13 @@ class Sorter {
   }
 
   sort(indices) {
-    return this.arr.sort(function(x,y) {return x-y})
-    console.log(indices)
+return this.arr.sort(function(x,y) {return x-y})
+    //console.log(indices)
     // your implementation
   }
 
   setComparator(compareFunction) {
-    console.log(indices)
+    //console.log(indices)
 
   }
 }
