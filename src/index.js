@@ -4,6 +4,7 @@ class Sorter {
     this.comporator = null;
     this.x = null;
     this.y = null;
+    this.tarr = [];
     //console.log(indices)
 
     // your implementation
@@ -30,26 +31,33 @@ class Sorter {
   }
 
   sort(indices) {
+  console.log(this.arr, "arrBefore")
     indices = indices.sort(function(a,b) {
          return a-b;    
       });
-    console.log(indices);
-    console.log(this.arr, "BEFORE")
-    this.x = indices[0];
-    this.y = indices[1];
-    if (this.arr[this.x]>this.arr[this.y]) {
-      var temp = this.arr[this.y];
-      this.arr[this.y] = this.arr[this.x];
-      this.arr[this.x] = temp;
-    }
-      console.log(this.arr, "AFTER")
-    return this.arr
+ for(var i = 0; i < indices.length; i++) {
+   this.tarr.push(this.arr[indices[i]]);
+ }
+ console.log(this.tarr, "tarr UNSORTED")
+this.tarr = this.tarr.sort(function(a,b) {
+         return a-b;   
+});
+  console.log(indices, "indices");
+  console.log(this.tarr, "tarrSORTED");
+for(var j = 0; j <this.tarr.length; j++ ) {
+  console.log(this.arr[indices[j]], "indicesJ", this.tarr[j], "thisArr");
+  this.arr[indices[j]] = this.tarr[j];
+  console.log("working")
+}
+   console.log(this.arr, "arrAfter")
+
+  this.tarr = [];
+  return this.arr;
 
   }
 
   setComparator(compareFunction) {
-    this.comporator = compareFunction;
-
+    return this.arr.sort(compareFunction);
 
   }
 }
